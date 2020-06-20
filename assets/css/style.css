@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 120%;
+}
+
+.start {
+    text-align: center; 
+    margin: 150px auto 0 auto;
+    max-width: 500px;
+}
+
+button {
+    background-color: blueviolet;
+    color: white;
+    border-radius: 40px;
+    font-size: 100%;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 20px;
+}
+
+button:hover {
+    background-color: violet;
+}
+
+.time {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+.scores {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
