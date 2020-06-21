@@ -3,6 +3,8 @@ var myInterval = 1000;
 var timerStart;
 var startBtn = document.getElementById("start");
 var timerEl = document.getElementById("timer");
+var questionsEl = document.getElementById("questions");
+
 
 var questions = [
     {
@@ -38,13 +40,15 @@ var questions = [
 function startQuiz() {
     timerEl.textContent = time;
     timerStart = setInterval(createTimer,myInterval);
-}
+    var startQuiz = document.getElementById("start-quiz");
+    startQuiz.setAttribute("class", "hidden");
+    questionsEl.removeAttribute("class");
+};
 
 function createTimer() {
    time--;
    timerEl.textContent = time;
-}
+};
 
 startBtn.addEventListener("click", startQuiz);
 
-startQuiz();
