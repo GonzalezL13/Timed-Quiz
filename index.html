@@ -12,17 +12,24 @@
 <body>
     <div class="scores">View Highscores</div>
 
-    <div class="time">Time:</div>
-    
+    <div class="time">Time:<span id="timer">0</span></div>
+    <!--Main Page-->
     <div class="start" id="start-page">
         <h1>Coding Quiz Challenge</h1>
         <p>
-            Try to answer the following code-related questions within the time limit. 
+            Try to answer the following code-related questions within the time limit.
             Keep in mind that incorrect answers will penalize your score/time by ten seconds!
         </p>
         <button id="start">Start Quiz</button>
     </div>
+    <!--Questions-->
+    <div id="questions" class="hide">
+        <h2 id="question"></h2>
+        <div id="choices" class="choices"></div>
+    </div>
 
+
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

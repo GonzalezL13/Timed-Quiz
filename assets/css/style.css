@@ -18,6 +18,7 @@ button {
     display: inline-block;
     margin: 5px;
     padding: 5px 20px;
+    border: none;
 }
 
 button:hover {
