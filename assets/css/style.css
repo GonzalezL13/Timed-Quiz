@@ -40,3 +40,15 @@ button:hover {
 .hidden {
     display: none;
 }
+
+#questions {
+    text-align: center; 
+    margin: 150px auto 0 auto;
+    max-width: 500px;
+}
+
+#end-quiz {
+    text-align: center; 
+    margin: 150px auto 0 auto;
+    max-width: 500px;
+}
