@@ -75,13 +75,14 @@ function getQuestions() {
 }
 
 function chosenClick() {
+    latestQuestion++;
     if (latestQuestion === question.length) {
         endQuiz();
     }
     else {
         getQuestions();
     }
-    latestQuestion++;
+
 }
 
 function endQuiz() {
