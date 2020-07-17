@@ -10,30 +10,35 @@
 </head>
 
 <body>
-    <div class="scores">View Highscores</div>
+    <div class="scores"><a href="highscores.html">Highscores</a></div>
 
     <div class="time">Time:<span id="timer">0</span></div>
-    <!--Start of Quiz-->
-    <div class="start" id="start-quiz">
-        <h1>Coding Quiz Challenge</h1>
-        <p>
-            Try to answer the following code-related questions within the time limit.
-            Keep in mind that incorrect answers will penalize your score/time by ten seconds!
-        </p>
-        <button id="start">Start Quiz</button>
-    </div>
-    <!--Questions-->
-    <div id="questions" class="hidden">
-        <h2 id="question"></h2>
-        <div id="choices" class="choices"></div>
-    </div>
-    <!--End of Quiz-->
-    <div class="hidden" id="end-quiz">
-        <h2>All Done!</h2>
-        <p>Your final score is <!--span for score--> </p>
-        <p> Enter Initials: <!--Input field for initials--> 
-            <button id="submit">Submit</button>
-        </p>
+
+    <div class="wrap">
+        <!--Start of Quiz-->
+        <div class="start" id="start-quiz">
+            <h1>Coding Quiz Challenge</h1>
+            <p>
+                Try to answer the following code-related questions within the time limit.
+                Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+            </p>
+            <button id="start">Start Quiz</button>
+        </div>
+        <!--Questions-->
+        <div id="questions" class="hidden">
+            <h2 id="question"></h2>
+            <div id="choices" class="choices"></div>
+        </div>
+        <!--End of Quiz-->
+        <div class="hidden" id="end-quiz">
+            <h2>All Done!</h2>
+            <p>Your final score is <span id="final-score"></span>.</p>
+            <p> Enter Initials: <input type="text" id="initials" max="2" />
+                <button id="submit">Submit</button>
+            </p>
+        </div>
+        <!--feedback-->
+        <div id="feedback" class="feedback hide"></div>
     </div>
 
     <script src="./assets/js/script.js"></script>

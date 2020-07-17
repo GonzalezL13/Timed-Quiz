@@ -1,4 +1,4 @@
-var time = 100;
+var time = 70;
 var myInterval = 1000;
 var timerStart;
 var latestQuestionIndex = 0;
@@ -6,6 +6,9 @@ var startBtn = document.getElementById("start");
 var timerEl = document.getElementById("timer");
 var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
+var feedbackEl = document.getElementById("feedback");
+var submitEl = document.getElementById("submit");
+var initialsEl = document.getElementById("initials");
 
 
 var questions = [
@@ -75,8 +78,21 @@ function getQuestions() {
 }
 
 function chosenClick() {
-    latestQuestion++;
-    if (latestQuestion === question.length) {
+    if (this.value !== questions[latestQuestionIndex].answer) {
+        time -= 15;
+
+        if (time < 0) {
+            time = 0;
+        }
+
+        timerEl.textContent = time;
+        feedbackEl.textContent = "Wrong!";
+    }
+    else {
+        feedbackEl.textContent = "Correct!";
+    }
+    latestQuestionIndex++;
+    if (latestQuestionIndex === questions.length) {
         endQuiz();
     }
     else {
@@ -86,13 +102,53 @@ function chosenClick() {
 }
 
 function endQuiz() {
+    //stop timer
     clearInterval(timerStart);
+    //show the last screen after quiz
+    var endQuizEl = document.getElementById("end-quiz");
+    endQuizEl.removeAttribute("class");
+    //hide the questions
+    questionsEl.setAttribute("class", "hidden");
+
+    // show final score
+    var finalScoreEl = document.getElementById("final-score");
+    finalScoreEl.textContent = time;
 }
 
 function createTimer() {
+    //this will update the time
     time--;
     timerEl.textContent = time;
-};
+    //check if time ran out
+    if (time <= 0) {
+        endQuiz();
+    }
+}
+
+function saveHighScore() {
+    // get value of input box
+    var initials = initialsEl.value.trim();
+
+    // make sure there is a value
+    if (initials !== "") {
+        // get saved scores from localstorage
+        var highscores =
+            JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+        // formats the scores
+        var newScore = {
+            score: time,
+            initials: initials
+        };
+
+        // saves to localstorage
+        highscores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+        // next page
+        window.location.href = "highscores.html";
+    }
+}
 
 startBtn.addEventListener("click", startQuiz);
-
+submitEl.addEventListener("click", saveHighScore);
